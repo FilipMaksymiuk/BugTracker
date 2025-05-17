@@ -9,16 +9,13 @@ import { Routes } from '@angular/router';
 import { OktaCallbackComponent } from '@okta/okta-angular';
 
 import { OktaAuthGuard } from '@okta/okta-angular';
-import { ProfileComponent } from './components/profile/profile.component';
-import {RegistrationComponent} from './components/registration/registration.component'; // dostosuj ścieżkę do swojego komponentu
+import {RegistrationComponent} from './components/registration/registration.component';
+import {BugAssignmentComponent} from './components/bug-assignment/bug-assignment.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: 'login/callback', component: OktaCallbackComponent },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [OktaAuthGuard]
-  },
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'login/callback', component: OktaCallbackComponent },
   {path: 'users', component: UserComponent},
   {path: 'search/:keyword', component: BugReportComponent},
   {path: 'bugs', component: BugReportComponent},
@@ -26,8 +23,9 @@ const routes: Routes = [
   {path: 'bugreport/add', component: BugReportFormComponent},
   {path: 'bugdetails/:id', component: BugReportDetailsComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: '', redirectTo: '/bugs', pathMatch: 'full'},
-  {path: '**', redirectTo: '/bugs', pathMatch: 'full'}
+  {path: 'app-bug-assignment', component: BugAssignmentComponent},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 
 

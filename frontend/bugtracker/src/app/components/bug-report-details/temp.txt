@@ -1,0 +1,90 @@
+
+
+File: ./bug-report-details.component.css
+
+
+File: ./bug-report-details.component.spec.ts
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { BugReportDetailsComponent } from './bug-report-details.component';
+
+describe('BugReportDetailsComponent', () => {
+  let component: BugReportDetailsComponent;
+  let fixture: ComponentFixture<BugReportDetailsComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [BugReportDetailsComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(BugReportDetailsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+
+File: ./bug-report-details.component.html
+<h2>Bug Report Details</h2>
+
+<div *ngIf="bugReport; else loading">
+  <p><strong>ID:</strong> {{ bugReport.id }}</p>
+  <p><strong>Bug Report:</strong> {{ bugReport.title || 'No title' }}</p>
+  <p><strong>Description:</strong> {{ bugReport.description || 'No description' }}</p>
+  <!--  <p><strong>Data:</strong> {{ bugReport.date || 'Brak daty' }}</p>-->
+  <p><strong>Bug Status:</strong> {{ bugReport.actualStatus?.name || 'No status' }}</p>
+
+  <button class="btn btn-secondary" routerLink="/bug-reports">Back</button>
+</div>
+
+<ng-template #loading>
+  <p>Loading data...</p>
+</ng-template>
+
+
+
+File: ./bug-report-details.component.ts
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {BugReportService} from '../../services/bug-report.service';
+import {BugReport} from '../../common/bug-report';
+
+@Component({
+  selector: 'app-bug-report-details',
+  standalone: false,
+  templateUrl: './bug-report-details.component.html',
+  styleUrl: './bug-report-details.component.css'
+})
+export class BugReportDetailsComponent implements OnInit {
+  bugReport?: BugReport;
+  constructor(
+    private route: ActivatedRoute,
+    private bugReportService: BugReportService
+  ) {}
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (!isNaN(id)) {
+      this.loadBugReport(id);
+    }
+  }
+
+  loadBugReport(id: number): void {
+    this.bugReportService.getBugReportById(id).subscribe({
+      next: (data) => {
+        this.bugReport = data;
+      },
+      error: (err) => {
+        console.error('Error fetching report:', err);
+      }
+    });
+  }
+}
+
+
+File: ./temp.txt

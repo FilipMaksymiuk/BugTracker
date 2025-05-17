@@ -1,0 +1,209 @@
+/* dashboard.component.css */
+
+.card {
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+  height: 6px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.rounded-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-group-item {
+  border-left: none;
+  border-right: none;
+  padding: 1rem 0;
+}
+
+.list-group-item:first-child {
+  border-top: none;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Filter buttons */
+.btn-group .btn {
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.btn-group .btn:last-child {
+  margin-right: 0;
+}
+
+/* For better spacing */
+h5.mb-0, h2.mb-0 {
+  font-weight: 600;
+}
+
+/* Make the table more compact */
+.table td, .table th {
+  padding: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Status circles */
+.status-circle {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+}
+
+.status-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+/* Improved text sizing and wrapping for status values */
+.status-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 5px;
+  /* Add counter animation */
+  counter-reset: num var(--num-value);
+  animation: count-up 2s forwards;
+}
+
+.status-value::after {
+  content: counter(num);
+}
+
+/* For red-marked areas - random initial values */
+.random-start {
+  counter-reset: num var(--random-start);
+  animation: count-from-random 2s forwards;
+}
+
+.random-start::after {
+  content: counter(num);
+}
+
+/* ---------- Liczniki szybkie – wersja deterministyczna ---------- */
+.fast-count {
+  counter-reset: fast-num var(--num-value, 0);
+  animation: fast-count-up 1.5s forwards;
+}
+.fast-count::after {
+  content: counter(fast-num);
+}
+
+@keyframes fast-count-up {
+  from { --num-value: 0; }
+  to   { --num-value: var(--target-value); }
+}
+/* --------------------------------------------------------------- */
+
+
+.status-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  white-space: normal;
+  width: 80%;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+/* Animate the progress bars */
+.progress-bar {
+  width: 0;
+  animation: progress-fill 1.5s ease-out forwards;
+}
+
+/* Better looking SVG circles */
+svg circle.animated-circle {
+  stroke-dasharray: 0 251.2;
+  animation: circle-fill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Number counter animation */
+@keyframes count-up {
+  from {
+    --num-value: 0;
+  }
+  to {
+    --num-value: var(--target-value);
+  }
+}
+
+/* Progress bar animation */
+@keyframes progress-fill {
+  from { width: 0; }
+  to { width: var(--percent); }
+}
+
+/* Circle animation */
+@keyframes circle-fill {
+  from { stroke-dasharray: 0 251.2; }
+  to { stroke-dasharray: var(--dash-value) 251.2; }
+}
+
+/* Make SVG responsive */
+.status-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Card value counters animation */
+.card-counter {
+  counter-reset: card-num var(--card-num-value);
+  animation: count-up 2s forwards;
+}
+
+.card-counter::after {
+  content: counter(card-num);
+}
+
+/* Fast-changing numbers animation */
+@keyframes fast-count-up {
+  0% {
+    --num-value: 0;
+  }
+  20% {
+    --num-value: 5;
+  }
+  40% {
+    --num-value: 19;
+  }
+  60% {
+    --num-value: 42;
+  }
+  80% {
+    --num-value: 78;
+  }
+  100% {
+    --num-value: var(--target-value);
+  }
+}
+
+/* Animation for random start values */
+@keyframes count-from-random {
+  from {
+    --num-value: var(--random-start);
+  }
+  to {
+    --num-value: var(--target-value);
+  }
+}

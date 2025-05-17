@@ -1,3 +1,16 @@
-<div class="bug-container" *ngIf="showBug">
-  <i class="fas fa-bug bug-icon"></i>
+<div class="bug-container" (click)="onBugClick()">
+  <i class="fas fa-bug bug-icon" [class.shake]="isShaking"></i>
+
+  <div *ngIf="bubbleMessage" class="speech-bubble">
+    {{ bubbleMessage }}
+  </div>
+</div>
+
+<div *ngIf="showRain" class="bug-rain">
+  <i *ngFor="let bug of rainBugs"
+     class="fas fa-bug bug-rain-icon"
+     [ngClass]="bug.animationClass"
+     [style.left.%]="bug.left"
+     [style.fontSize.px]="bug.size">
+  </i>
 </div>

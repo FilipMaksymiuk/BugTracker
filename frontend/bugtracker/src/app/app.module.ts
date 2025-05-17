@@ -15,7 +15,7 @@ import {BugReportLogService} from './services/bug-report-log.service';
 import {BugReportService} from './services/bug-report.service';
 import { SearchComponent } from './components/search/search.component';
 import { AnimatedBugComponent } from './components/animated-bug/animated-bug.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BugReportFormComponent } from './components/bug-report-form/bug-report-form.component';
 import { BugReportDetailsComponent } from './components/bug-report-details/bug-report-details.component';
 
@@ -23,15 +23,15 @@ import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 import { oktaConfig } from './okta.config';
-import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import {AuthInterceptor} from './auth.interceptor';
 import { RegistrationComponent } from './components/registration/registration.component';
+import {BugAssignmentComponent} from './components/bug-assignment/bug-assignment.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LogoComponent } from './components/logo/logo.component';
+// import {BugAssignmentService} from './services/bug-assignment.service';
 
 const oktaAuth = new OktaAuth(oktaConfig);
-
-
-
 
 @NgModule({
   declarations: [
@@ -43,9 +43,11 @@ const oktaAuth = new OktaAuth(oktaConfig);
     AnimatedBugComponent,
     BugReportFormComponent,
     BugReportDetailsComponent,
-    ProfileComponent,
     HomeComponent,
     RegistrationComponent,
+    BugAssignmentComponent,
+    DashboardComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,9 @@ const oktaAuth = new OktaAuth(oktaConfig);
     NgbModule,
     HttpClientModule,
     FormsModule,
-    OktaAuthModule
+    OktaAuthModule,
+    ReactiveFormsModule,
+
   ],
   providers: [UserService, BugReportService, BugReportLogService, { provide: OKTA_CONFIG, useValue: { oktaAuth } },
     { provide: OktaAuth, useValue: oktaAuth },

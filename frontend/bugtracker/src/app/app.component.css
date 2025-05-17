@@ -110,16 +110,6 @@ body {
   }
 }
 
-.sidebar .logo {
-  padding: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.sidebar .logo img {
-  max-height: 40px;
-}
-
 .sidebar-nav {
   padding: 1rem 0;
 }
