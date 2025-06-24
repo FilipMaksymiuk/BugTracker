@@ -58,9 +58,9 @@ VALUES
 
 INSERT INTO category (name)
 VALUES
-    ('Bug category 1'),
-    ('Bug category 2'),
-    ('Bug category 3');
+    ('Authentication & Access Control'),
+    ('API & Server Communication'),
+    ('User Interface & Layout');
 
 -- Inserting sample bug statuses
 INSERT INTO bug_status (name)

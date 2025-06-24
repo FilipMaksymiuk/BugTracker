@@ -16,10 +16,11 @@ export class CommentService {
     return this.http.get<Comment[]>(`${this.apiUrl}/${bugReportId}`);
   }
 
-  addComment(bugReportId: number, commentText: string): Observable<Comment> {
-    return this.http.post<Comment>(this.apiUrl, {
-      bugReportId,
-      comment: commentText
-    });
+  addComment(payload: {
+    comment: string,
+    bugReport: { id: number },
+    user: { id: number }
+  }): Observable<Comment> {
+    return this.http.post<Comment>(this.apiUrl, payload);
   }
 }

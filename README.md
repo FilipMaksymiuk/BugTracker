@@ -10,10 +10,17 @@ System do zarządzania zgłoszeniami błędów i problemów (Bug Tracking System
 - **Śledzenie statusu** – Monitorowanie statusów zgłoszeń (np. Nowe, W toku, Rozwiązane, Zamknięte).
 - **Priorytetyzacja zgłoszeń** – Oznaczanie zgłoszeń priorytetami (np. Niski, Średni, Wysoki, Krytyczny).
 - **Historia zmian** – Śledzenie zmian w zgłoszeniu, np. zmiana statusu, edycja opisu.
-- **Filtrowanie i wyszukiwanie** – Zaawansowane opcje filtrowania i wyszukiwania zgłoszeń.
+- **Wyszukiwanie zgłoszeń** – Opcja wyszukiwania zgłoszeń np. po tytule.
 - **Rejestracja/logowanie** - Tworzenie nowego użytkownika posiadającego odpowiednie role i zaszyfrowane hasło w bazie danych, a także logowanie przed dokonaniem zgłoszenia.
 
 ## Technologie:
 - **Frontend:** Angular / TypeScript
 - **Backend:** Java / Spring Boot
 - **Database:** PostgreSQL
+
+## Team Members:
+- **Jakub Krupicki**  
+- **Bartosz Kowalski**  
+- **Filip Maksymiuk**  
+- **Kamil Leleniewski**  
+- **Remigiusz Leś**   

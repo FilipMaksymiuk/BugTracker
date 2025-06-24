@@ -16,7 +16,7 @@ import {BugReportService} from './services/bug-report.service';
 import { SearchComponent } from './components/search/search.component';
 import { AnimatedBugComponent } from './components/animated-bug/animated-bug.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { BugReportFormComponent } from './components/bug-report-form/bug-report-form.component';
+import { BugReportFormComponent } from './components/bug-report-add-form/bug-report-form.component';
 import { BugReportDetailsComponent } from './components/bug-report-details/bug-report-details.component';
 
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
@@ -29,6 +29,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import {BugAssignmentComponent} from './components/bug-assignment/bug-assignment.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 // import {BugAssignmentService} from './services/bug-assignment.service';
 
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -47,7 +48,8 @@ const oktaAuth = new OktaAuth(oktaConfig);
     RegistrationComponent,
     BugAssignmentComponent,
     DashboardComponent,
-    LogoComponent
+    LogoComponent,
+    ThemeToggleComponent
   ],
   imports: [
     BrowserModule,

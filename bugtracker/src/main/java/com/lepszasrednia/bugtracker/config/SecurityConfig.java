@@ -58,7 +58,8 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/swagger-ui.html",
                                 "/webjars/**",
-                                "/api/comments/**" //TODO usun to stad
+                                "/api/comments/**", //TODO usun to stad
+                                "/api/logs/**"
                         ).permitAll()
                         .requestMatchers("/user/me").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                         .requestMatchers("/users/all").hasAuthority("ROLE_ADMIN")

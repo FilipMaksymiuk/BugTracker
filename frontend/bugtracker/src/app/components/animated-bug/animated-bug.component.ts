@@ -38,7 +38,7 @@ export class AnimatedBugComponent {
     }
 
     if (this.bugClicks % 10 === 0) {
-      this.triggerBugRain();
+      this.triggerBugRain(this.bugClicks); // Przekazujemy liczbę kliknięć
     }
   }
 
@@ -51,10 +51,12 @@ export class AnimatedBugComponent {
     setTimeout(() => this.bubbleMessage = '', 4000);
   }
 
-  triggerBugRain(): void {
+  triggerBugRain(bugCount: number): void { // Odbieramy liczbę kliknięć
     this.showRain = true;
+    // Ustawiamy liczbę robaków na liczby kliknięć, 
+    const numberOfBugs = Math.min(bugCount, 50); // Maksymalnie 50 robaków
 
-    this.rainBugs = Array.from({ length: 50 }, (_, i) => ({
+    this.rainBugs = Array.from({ length: numberOfBugs }, (_, i) => ({
       id: i,
       animationClass: `anim${Math.floor(Math.random() * 5) + 1}`,
       left: Math.random() * 100,
@@ -67,3 +69,4 @@ export class AnimatedBugComponent {
     }, 5000);
   }
 }
+

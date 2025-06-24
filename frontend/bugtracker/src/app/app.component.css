@@ -10,12 +10,15 @@ body {
 .app-container {
   display: flex;
   flex: 1;
+  background: #f7c8e5;
+  background: linear-gradient(90deg,rgba(247, 200, 229, 1) 0%, rgba(196, 173, 240, 1) 50%, rgba(162, 195, 232, 1) 100%);
 }
 
 /* Custom Bootstrap overrides for dark theme */
 .bg-dark-custom {
   background-color: var(--bg-dark) !important;
 }
+
 
 .bg-card-custom {
   background-color: var(--card-bg) !important;
@@ -172,6 +175,7 @@ body {
 .page-content {
   padding: 1.5rem;
   flex: 1;
+  /*background-color: #f8fafc;*/
 }
 
 /* Card styles */
